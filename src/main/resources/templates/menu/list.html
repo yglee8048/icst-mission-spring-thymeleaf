@@ -2,20 +2,23 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../static/css/menu/list.css">
-    <script src="../../static/lib/js/jquery-3.4.1.js"></script>
-    <script src="../../static/js/menu/list.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/menu/list.css" th:href="@{/css/menu/list.css}">
+    <script src="../../static/lib/js/jquery-3.4.1.js" th:src="@{/lib/js/jquery-3.4.1.js}"></script>
+    <script src="../../static/js/menu/list.js" th:src="@{/js/menu/list.js}"></script>
     <title>행복마루</title>
 </head>
 <body>
 <header>
     <div class="rightHalf">
-        <a id="logoutBtn" href="/hangma/member/logout">로그아웃</a>
-        <a id="updateBtn" href="/hangma/member/update">회원수정</a>
+        <a id="logoutBtn" href="/hangma/member/logout" th:href="@{/member/logout}">로그아웃</a>
+        <a id="updateBtn" href="/hangma/member/update" th:hre="@{/member/update}">회원수정</a>
         <a id="withdrawBtn"
-           onclick="if(confirm('정말 탈퇴하시겠습니까?')){location.href='/hangma/member/withdraw'}">회원탈퇴</a>
-        <a id="orderListBtn" href="/hangma/order/list">주문목록</a>
-        <a id="manageMenuBtn" href="/hangma/menu/manage">메뉴관리</a>
+           onclick="if(confirm('정말 탈퇴하시겠습니까?')){location.href='/hangma/member/withdraw'}"
+           th:onclick="|if(confirm('정말 탈퇴하시겠습니까?')){location.href='@{/member/withdraw}'}|">
+            회원탈퇴
+        </a>
+        <a id="orderListBtn" href="/hangma/order/list" th:href="@{/order/list}">주문목록</a>
+        <a id="manageMenuBtn" href="/hangma/menu/manage" th:href="@{/menu/manage}">메뉴관리</a>
     </div>
 </header>
 <div class="menu">
@@ -26,49 +29,49 @@
         <li id="JUICE">주스/스무디</li>
         <li id="BAKERY">베이커리</li>
     </ul>
-    <div class="tab_content" id="TAB_COFFEE_HOT">
+    <div class="tab_content" id="TAB_COFFEE_HOT" th:each="item : ${menu}">
         <div class="item">
-            <input type="hidden" class="menuId" value="1">
-            <img src="../../static/img/americano.jpg" alt="menu_img">
-            <p class="menuName">아메리카노</p>
-            <p><span class="price">1000</span>원</p>
+            <input type="hidden" class="menuId" value="1" th:value="${item.menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}" alt="menu_img">
+            <p class="menuName" th:text="${item.menuNm}">아메리카노</p>
+            <p><span class="price" th:text="${item.price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_COFFEE_ICE">
-        <div class="item">
-            <input type="hidden" class="menuId" value="1">
-            <img src="../../static/img/americano.jpg" alt="menu_img">
-            <p class="menuName">아메리카노</p>
-            <p><span class="price">1000</span>원</p>
+        <div class="item" th:object="${item}">
+            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
+            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
+            <p><span class="price" th:text="*{price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_TEA">
-        <div class="item">
-            <input type="hidden" class="menuId" value="1">
-            <img src="../../static/img/americano.jpg" alt="menu_img">
-            <p class="menuName">아메리카노</p>
-            <p><span class="price">1000</span>원</p>
+        <div class="item" th:object="${item}">
+            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
+            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
+            <p><span class="price" th:text="*{price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_JUICE">
-        <div class="item">
-            <input type="hidden" class="menuId" value="1">
-            <img src="../../static/img/americano.jpg" alt="menu_img">
-            <p class="menuName">아메리카노</p>
-            <p><span class="price">1000</span>원</p>
+        <div class="item" th:object="${item}">
+            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
+            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
+            <p><span class="price" th:text="*{price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_BAKERY">
-        <div class="item">
-            <input type="hidden" class="menuId" value="1">
-            <img src="../../static/img/americano.jpg" alt="menu_img">
-            <p class="menuName">아메리카노</p>
-            <p><span class="price">1000</span>원</p>
+        <div class="item" th:object="${item}">
+            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
+            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
+            <p><span class="price" th:text="*{price}">1000</span>원</p>
         </div>
     </div>
 </div>
 <div class="order">
-    <form id="orderForm" action="/hangma/order/insert" method="post">
+    <form id="orderForm" action="/hangma/order/insert" th:action="@{/order/insert}" method="post">
         <input type="hidden" id="price" name="price">
         <div class="orderDetails">
             <h1>주문내역</h1>
