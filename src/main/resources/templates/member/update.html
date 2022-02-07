@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/member/update.css">
+    <title>행복마루</title>
+</head>
+<body>
+<div class="signUp">
+    <h1>회원수정</h1>
+    <form action="/hangma/member/update" method="post">
+        <hr>
+        <table>
+            <colgroup>
+                <col style="width: 25%;">
+                <col style="width: 75%;">
+            </colgroup>
+            <tbody>
+            <tr>
+                <th><label for="empNo">사번</label></th>
+                <td>
+                    <input type="text" id="empNo" name="empNo" value="88999" disabled>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="empNm">이름</label></th>
+                <td>
+                    <input type="text" id="empNm" name="empNm" value="홍길동" placeholder="이름" required>
+                    *이름을 입력해주세요
+                </td>
+            </tr>
+            <tr>
+                <th><label for="empRank">등급</label></th>
+                <td>
+                    <input type="text" id="empRank" name="empRank" value="VIP" placeholder="등급" disabled>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="buttonDiv">
+            <button type="submit">수정</button>
+            <button type="button" id="cancelBtn" onclick="location.href='/hangma/menu/list'">
+                취소
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

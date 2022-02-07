@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/order/list.css">
+    <title>행복마루</title>
+</head>
+<body>
+<div class="order">
+    <h1> 홍길동 님의 주문내역</h1>
+    <hr>
+    <table>
+        <colgroup>
+            <col style="width: 20%;">
+            <col style="width: 20%;">
+            <col style="width: 20%;">
+            <col style="width: 20%;">
+            <col style="width: 20%;">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>주문금액</th>
+            <th>할인금액</th>
+            <th>총 금액</th>
+            <th>주문일시</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>10000</td>
+            <td>1000</td>
+            <td>9000</td>
+            <td>2022-02-22</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div class="buttonDiv">
+        <button type="button" id="menuBtn" onclick="location.href='/hangma/menu/list'">
+            메뉴보기
+        </button>
+    </div>
+</div>
+</body>
+</html>

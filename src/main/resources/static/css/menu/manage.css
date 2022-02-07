@@ -1,0 +1,71 @@
+.leftHalf {
+    width: 50%;
+    text-align: left;
+}
+
+a {
+    cursor: pointer;
+}
+
+.menu {
+    margin-top: 20px;
+    overflow: hidden;
+    float: left;
+    width: 60%;
+}
+
+ul.tabs {
+    padding: 0;
+    list-style: none;
+    height: 35px; /*--Set height of tabs--*/
+}
+
+ul.tabs li {
+    float: left;
+    line-height: 31px; /*--Vertically aligns the text within the tab--*/
+    border: 1px solid #999;
+    background: #e0e0e0;
+    font-size: 1.2em;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+ul.tabs li:hover {
+    background: #ccc;
+}
+
+ul.tabs li.active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    cursor: default;
+}
+
+.tab_content {
+    display: none;
+}
+
+.tab_content.active {
+    display: block;
+}
+
+.item {
+    float: left;
+    width: 30%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    cursor: pointer;
+}
+
+.item .menuName {
+    font-size: 1.2em;
+    color: #428bca;
+}
+
+.item img {
+    height: 200px;
+    overflow: hidden;
+}

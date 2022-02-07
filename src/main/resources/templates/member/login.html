@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/member/login.css">
+    <title>행복마루</title>
+</head>
+<body>
+<div class="login">
+    <form id="loginForm" action="/hangma/member/login" method="post">
+        <h1>행복마루에 오신 것을 환영합니다.</h1>
+
+        <h1><label for="empNo">사원번호로 인증해주세요.</label></h1>
+        <input type="text" id="empNo" name="empNo" placeholder="사번" minlength="5" maxlength="5" required>
+
+        <button type="submit">로그인</button>
+        <button type="button" id="signUpBtn" onclick="location.href='/hangma/member/sign-up'">
+            회원가입
+        </button>
+    </form>
+</div>
+</body>
+</html>

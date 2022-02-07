@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/menu/manage.css">
+    <script src="../../static/lib/js/jquery-3.4.1.js"></script>
+    <script src="../../static/js/menu/manage.js"></script>
+    <title>행복마루</title>
+</head>
+<body>
+<header>
+    <div class="leftHalf">
+        <a id="backBtn" href="/hangma/menu/list">뒤로가기</a>
+        <a id="insertBtn" href="/hangma/menu/insert">메뉴등록</a>
+    </div>
+</header>
+<div class="menu">
+    <ul class="tabs">
+        <li id="COFFEE_HOT">커피(HOT)</li>
+        <li id="COFFEE_ICE">커피(ICED)</li>
+        <li id="TEA">차(HOT/ICED)</li>
+        <li id="JUICE">주스/스무디</li>
+        <li id="BAKERY">베이커리</li>
+    </ul>
+    <div class="tab_content" id="TAB_COFFEE_HOT">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_COFFEE_ICE">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_TEA">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_JUICE">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_BAKERY">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

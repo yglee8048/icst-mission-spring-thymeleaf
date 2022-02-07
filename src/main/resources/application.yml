@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /hangma
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.100.70.7:1521:XE
+    username: mission09
+    password: mission09
+    hikari:
+      auto-commit: false

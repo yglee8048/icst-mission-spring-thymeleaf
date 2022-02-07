@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/menu/list.css">
+    <script src="../../static/lib/js/jquery-3.4.1.js"></script>
+    <script src="../../static/js/menu/list.js"></script>
+    <title>행복마루</title>
+</head>
+<body>
+<header>
+    <div class="rightHalf">
+        <a id="logoutBtn" href="/hangma/member/logout">로그아웃</a>
+        <a id="updateBtn" href="/hangma/member/update">회원수정</a>
+        <a id="withdrawBtn"
+           onclick="if(confirm('정말 탈퇴하시겠습니까?')){location.href='/hangma/member/withdraw'}">회원탈퇴</a>
+        <a id="orderListBtn" href="/hangma/order/list">주문목록</a>
+        <a id="manageMenuBtn" href="/hangma/menu/manage">메뉴관리</a>
+    </div>
+</header>
+<div class="menu">
+    <ul class="tabs">
+        <li id="COFFEE_HOT">커피(HOT)</li>
+        <li id="COFFEE_ICE">커피(ICED)</li>
+        <li id="TEA">차(HOT/ICED)</li>
+        <li id="JUICE">주스/스무디</li>
+        <li id="BAKERY">베이커리</li>
+    </ul>
+    <div class="tab_content" id="TAB_COFFEE_HOT">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_COFFEE_ICE">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_TEA">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_JUICE">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+    <div class="tab_content" id="TAB_BAKERY">
+        <div class="item">
+            <input type="hidden" class="menuId" value="1">
+            <img src="../../static/img/americano.jpg" alt="menu_img">
+            <p class="menuName">아메리카노</p>
+            <p><span class="price">1000</span>원</p>
+        </div>
+    </div>
+</div>
+<div class="order">
+    <form id="orderForm" action="/hangma/order/insert" method="post">
+        <input type="hidden" id="price" name="price">
+        <div class="orderDetails">
+            <h1>주문내역</h1>
+            <table>
+                <colgroup>
+                    <col style="width: 45%;">
+                    <col style="width: 15%;">
+                    <col style="width: 25%;">
+                    <col style="width: 15%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>메뉴명</th>
+                    <th>수량</th>
+                    <th>금액</th>
+                    <th></th><!-- Delete Button -->
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="orderTemplate" class="blind">
+                    <td class="menuName">아메리카노</td>
+                    <td class="qty">2</td>
+                    <td class="price">2000</td>
+                    <td>
+                        <button type="button">삭제</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <table class="orderSum">
+            <colgroup>
+                <col style="width: 30%;">
+                <col style="width: 70%;">
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>총 금액</th>
+                <td><span id="totalPrice">0</span>원</td>
+            </tr>
+            <tr>
+                <th>사번</th>
+                <td>
+                    88999
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="orderButtonDiv">
+            <button type="submit">사원결제</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

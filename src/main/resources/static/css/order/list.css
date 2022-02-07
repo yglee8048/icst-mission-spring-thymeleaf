@@ -1,0 +1,39 @@
+.order {
+    width: 60%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order table {
+    width: 100%;
+}
+
+.order th {
+    padding: 5px;
+    border-top: 1px solid #ddd;
+    background-color: #f5f5f5;
+}
+
+.order td {
+    padding: 5px;
+    text-align: center;
+}
+
+.buttonDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buttonDiv button {
+    width: 80px;
+    height: 39px;
+    background: #50c0e9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 0 solid transparent;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
