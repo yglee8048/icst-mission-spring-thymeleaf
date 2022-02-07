@@ -11,7 +11,7 @@
 <header>
     <div class="rightHalf">
         <a id="logoutBtn" href="/hangma/member/logout" th:href="@{/member/logout}">로그아웃</a>
-        <a id="updateBtn" href="/hangma/member/update" th:hre="@{/member/update}">회원수정</a>
+        <a id="updateBtn" href="/hangma/member/update" th:href="@{/member/update}">회원수정</a>
         <a id="withdrawBtn"
            onclick="if(confirm('정말 탈퇴하시겠습니까?')){location.href='/hangma/member/withdraw'}"
            th:onclick="|if(confirm('정말 탈퇴하시겠습니까?')){location.href='@{/member/withdraw}'}|">
