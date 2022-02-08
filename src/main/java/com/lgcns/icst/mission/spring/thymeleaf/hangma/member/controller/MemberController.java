@@ -6,12 +6,7 @@ import com.lgcns.icst.mission.spring.thymeleaf.hangma.member.entity.EmployeeEnti
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -32,12 +27,13 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginAction(@RequestParam Integer empNo, HttpSession session, Model model) {
+    public String loginAction(@RequestParam Integer empNo, HttpSession session, Model model,
+                              @RequestParam(required = false, defaultValue = "/menu/list") String redirectURI) {
         try {
             EmployeeEntity employeeEntity = memberBiz.findByEmpNo(empNo);
             session.setAttribute(SessionKey.EMP_NO, employeeEntity.getEmpNo());
 
-            return "redirect:/menu/list";
+            return "redirect:" + redirectURI;
         } catch (Exception e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "common/error";

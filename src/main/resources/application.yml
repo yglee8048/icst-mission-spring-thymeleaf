@@ -11,3 +11,8 @@ spring:
     password: mission09
     hikari:
       auto-commit: false
+
+logging:
+  level:
+    root: info
+    com.lgcns.icst.mission.spring.thymeleaf.hangma.common: debug
