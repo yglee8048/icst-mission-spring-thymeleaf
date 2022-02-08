@@ -11,7 +11,7 @@
 <header>
     <div class="rightHalf">
         <a id="logoutBtn" href="/hangma/member/logout" th:href="@{/member/logout}">로그아웃</a>
-        <a id="updateBtn" href="/hangma/member/update" th:hre="@{/member/update}">회원수정</a>
+        <a id="updateBtn" href="/hangma/member/update" th:href="@{/member/update}">회원수정</a>
         <a id="withdrawBtn"
            onclick="if(confirm('정말 탈퇴하시겠습니까?')){location.href='/hangma/member/withdraw'}"
            th:onclick="|if(confirm('정말 탈퇴하시겠습니까?')){location.href='@{/member/withdraw}'}|">
@@ -29,44 +29,49 @@
         <li id="JUICE">주스/스무디</li>
         <li id="BAKERY">베이커리</li>
     </ul>
-    <div class="tab_content" id="TAB_COFFEE_HOT" th:each="item : ${menu}">
-        <div class="item">
+    <div class="tab_content" id="TAB_COFFEE_HOT">
+        <div class="item" th:each="item : ${menu}" th:if="${item.category.toString().equals('COFFEE_HOT')}">
             <input type="hidden" class="menuId" value="1" th:value="${item.menuId}">
-            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}" alt="menu_img">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}"
+                 alt="menu_img">
             <p class="menuName" th:text="${item.menuNm}">아메리카노</p>
             <p><span class="price" th:text="${item.price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_COFFEE_ICE">
-        <div class="item" th:object="${item}">
-            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
-            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
-            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
-            <p><span class="price" th:text="*{price}">1000</span>원</p>
+        <div class="item" th:each="item : ${menu}" th:if="${#strings.equals(item.category, 'COFFEE_ICE')}">
+            <input type="hidden" class="menuId" value="1" th:value="${item.menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}"
+                 alt="menu_img">
+            <p class="menuName" th:text="${item.menuNm}">아메리카노</p>
+            <p><span class="price" th:text="${item.price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_TEA">
-        <div class="item" th:object="${item}">
-            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
-            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
-            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
-            <p><span class="price" th:text="*{price}">1000</span>원</p>
+        <div class="item" th:each="item : ${menu}" th:if="${#strings.equals(item.category, 'TEA')}">
+            <input type="hidden" class="menuId" value="1" th:value="${item.menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}"
+                 alt="menu_img">
+            <p class="menuName" th:text="${item.menuNm}">아메리카노</p>
+            <p><span class="price" th:text="${item.price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_JUICE">
-        <div class="item" th:object="${item}">
-            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
-            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
-            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
-            <p><span class="price" th:text="*{price}">1000</span>원</p>
+        <div class="item" th:each="item : ${menu}" th:if="${#strings.equals(item.category, 'JUICE')}">
+            <input type="hidden" class="menuId" value="1" th:value="${item.menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}"
+                 alt="menu_img">
+            <p class="menuName" th:text="${item.menuNm}">아메리카노</p>
+            <p><span class="price" th:text="${item.price}">1000</span>원</p>
         </div>
     </div>
     <div class="tab_content" id="TAB_BAKERY">
-        <div class="item" th:object="${item}">
-            <input type="hidden" class="menuId" value="1" th:value="*{menuId}">
-            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=*{imgFileNm})}" alt="menu_img">
-            <p class="menuName" th:text="*{menuNm}">아메리카노</p>
-            <p><span class="price" th:text="*{price}">1000</span>원</p>
+        <div class="item" th:each="item : ${menu}" th:if="${#strings.equals(item.category, 'BAKERY')}">
+            <input type="hidden" class="menuId" value="1" th:value="${item.menuId}">
+            <img src="../../static/img/americano.jpg" th:src="@{/img/{imgNm} (imgNm=${item.imgFileNm})}"
+                 alt="menu_img">
+            <p class="menuName" th:text="${item.menuNm}">아메리카노</p>
+            <p><span class="price" th:text="${item.price}">1000</span>원</p>
         </div>
     </div>
 </div>
@@ -114,7 +119,7 @@
             </tr>
             <tr>
                 <th>사번</th>
-                <td>
+                <td th:text="${session.empNo}">
                     88999
                 </td>
             </tr>

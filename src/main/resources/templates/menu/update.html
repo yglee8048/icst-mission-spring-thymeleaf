@@ -2,13 +2,13 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../static/css/menu/update.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/menu/update.css" th:href="@{/css/menu/update.css}">
     <title>행복마루</title>
 </head>
 <body>
 <div class="signUp">
     <h1>메뉴수정</h1>
-    <form action="/hangma/menu/1/update" method="post">
+    <form action="/hangma/menu/1/update" th:action method="post" th:object="${menu}">
         <hr>
         <table>
             <colgroup>
@@ -18,13 +18,13 @@
             <tbody>
             <tr>
                 <th><label for="menuId">메뉴번호</label></th>
-                <td><input type="text" id="menuId" name="menuId" value="1" readonly></td>
+                <td><input type="text" id="menuId" name="menuId" value="1" th:field="*{menuId}" readonly></td>
             </tr>
             <tr>
                 <th><label for="category">카테고리</label></th>
                 <td>
-                    <select id="category" name="category" required>
-                        <option value="COFFEE_HOT" selected>
+                    <select id="category" name="category" th:field="*{category}" required>
+                        <option value="COFFEE_HOT">
                             커피(HOT)
                         </option>
                         <option value="COFFEE_ICE">
@@ -45,14 +45,16 @@
             <tr>
                 <th><label for="menuNm">메뉴명</label></th>
                 <td>
-                    <input type="text" id="menuNm" name="menuNm" value="아메리카노" placeholder="이름" required>
+                    <input type="text" id="menuNm" name="menuNm" value="아메리카노" th:field="*{menuNm}" placeholder="이름"
+                           required>
                     *메뉴명을 입력해주세요
                 </td>
             </tr>
             <tr>
                 <th><label for="price">가격</label></th>
                 <td>
-                    <input type="number" id="price" name="price" value="1000" placeholder="가격" required>
+                    <input type="number" id="price" name="price" value="1000" th:field="*{price}" placeholder="가격"
+                           required>
                     *가격을 입력해주세요
                 </td>
             </tr>
@@ -62,10 +64,12 @@
         <div class="buttonDiv">
             <button type="submit">수정</button>
             <button type="button" id="deleteBtn"
-                    onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='/hangma/menu/1/delete'}">
+                    onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='/hangma/menu/1/delete'}"
+                    th:onclick="|if(confirm('정말로 삭제하시겠습니까?')){location.href='@{/menu/{id}/delete (id={menu.menuId})}'}|">
                 삭제
             </button>
-            <button type="button" id="cancelBtn" onclick="location.href='/hangma/menu/manage'">
+            <button type="button" id="cancelBtn" onclick="location.href='/hangma/menu/manage'"
+                    th:onclick="|location.href='@{/menu/manage}'|">
                 취소
             </button>
         </div>

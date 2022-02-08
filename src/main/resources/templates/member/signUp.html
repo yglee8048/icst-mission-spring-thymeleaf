@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../static/css/member/signUp.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/member/signUp.css" th:href="@{/css/member/signUp.css}">
     <title>행복마루</title>
 </head>
 <body>
 <div class="signUp">
     <h1>회원가입</h1>
-    <form id="signUpForm" action="/hangma/member/sign-up" method="post">
+    <form id="signUpForm" action="/hangma/member/sign-up" th:action method="post">
         <hr>
         <table>
             <colgroup>
@@ -32,7 +32,8 @@
         <hr>
         <div class="buttonDiv">
             <button type="submit">등록</button>
-            <button type="button" id="cancelBtn" onclick="location.href='/hangma/member/login'">
+            <button type="button" id="cancelBtn" onclick="location.href='/hangma/member/login'"
+                    th:onclick="|location.href='@{/member/login}'|">
                 취소
             </button>
         </div>

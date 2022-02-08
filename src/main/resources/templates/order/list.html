@@ -2,12 +2,12 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../static/css/order/list.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/order/list.css" th:href="@{/css/order/list.css}">
     <title>행복마루</title>
 </head>
 <body>
 <div class="order">
-    <h1> 홍길동 님의 주문내역</h1>
+    <h1><span th:text="${empNm}">홍길동</span> 님의 주문내역</h1>
     <hr>
     <table>
         <colgroup>
@@ -27,18 +27,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>10000</td>
-            <td>1000</td>
-            <td>9000</td>
-            <td>2022-02-22</td>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.orderId}">1</td>
+            <td th:text="${order.price}">10000</td>
+            <td th:text="${order.discountPrice}">1000</td>
+            <td th:text="${order.price - order.discountPrice}">9000</td>
+            <td th:text="${order.orderDt}">2022-02-22</td>
         </tr>
         </tbody>
     </table>
     <hr>
     <div class="buttonDiv">
-        <button type="button" id="menuBtn" onclick="location.href='/hangma/menu/list'">
+        <button type="button" id="menuBtn" onclick="location.href='/hangma/menu/list'"
+        th:onclick="|location.href='@{/menu/list}'|">
             메뉴보기
         </button>
     </div>

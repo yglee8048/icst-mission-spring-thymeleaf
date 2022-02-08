@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../static/css/common/error.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/common/error.css" th:href="@{/css/common/error.css}">
     <title>행복마루</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <tbody>
         <tr>
             <th>오류내용</th>
-            <td>
+            <td th:text="${errorMessage}">
                 {오류 메시지}
             </td>
         </tr>
@@ -25,7 +25,8 @@
     </table>
     <hr>
     <div class="buttonDiv">
-        <button type="button" id="homeBtn" onclick="location.href='/hangma/member/login'">
+        <button type="button" id="homeBtn" onclick="location.href='/hangma/member/login'"
+                th:onclick="|location.href='@{/member/login}'|">
             홈으로
         </button>
     </div>
