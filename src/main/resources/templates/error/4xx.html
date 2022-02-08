@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/common/error.css" th:href="@{/css/common/error.css}">
+    <title>행복마루</title>
+</head>
+<body>
+<div class="error">
+    <h1 th:text="${status}">{오류코드}</h1>
+    <hr>
+    <table>
+        <colgroup>
+            <col style="width: 25%;">
+            <col style="width: 75%;">
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>오류내용</th>
+            <td>
+                잘못된 요청입니다.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div class="buttonDiv">
+        <button type="button" id="homeBtn" onclick="location.href='/hangma/member/login'">
+            홈으로
+        </button>
+    </div>
+</div>
+</body>
+</html>

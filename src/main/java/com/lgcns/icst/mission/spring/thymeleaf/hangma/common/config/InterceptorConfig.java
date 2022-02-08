@@ -12,7 +12,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AuthenticationInterceptor())
                 .order(1)
-                .addPathPatterns("/**")
+                .addPathPatterns("/member/**", "/menu/**", "/order/**")
                 .excludePathPatterns("", "/index.html", "/member/login", "/member/logout", "/member/sign-up",
                         "/js/**", "/css/**", "/lib/**", "/img/**", "/**.ico");
     }
