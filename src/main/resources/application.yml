@@ -11,3 +11,11 @@ spring:
     password: mission09
     hikari:
       auto-commit: false
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+logging:
+  level:
+    root: info
+    com.lgcns.icst.mission.spring.thymeleaf.hangma.common: debug
